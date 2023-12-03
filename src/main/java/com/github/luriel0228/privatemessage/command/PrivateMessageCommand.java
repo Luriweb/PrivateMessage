@@ -46,10 +46,11 @@ public class PrivateMessageCommand implements CommandExecutor, TabCompleter {
             for (int i = 1; i < args.length; i++) {
                 messageBuilder.append(args[i]).append(" ");
             }
+
             String message = messageBuilder.toString().trim();
 
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', sender + "&f: " + message));
-            targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', sender + "&f: " + message));
+            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f나 &7-> &f" + targetPlayer.getDisplayName() + "&f: " + message));
+            targetPlayer.sendMessage(ChatColor.translateAlternateColorCodes('&', ((Player) sender).getDisplayName() + " &7-> &f나" + "&f: " + message));
 
             return true;
         }

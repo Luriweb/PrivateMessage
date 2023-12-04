@@ -29,6 +29,11 @@ public class PrivateMessageCommand implements CommandExecutor, TabCompleter {
                 return true;
             }
 
+            if(args.length == 1){
+                sender.sendMessage("메세지를 입력해주세요.");
+                return true;
+            }
+
             String targetPlayerName = args[0];
             Player targetPlayer = Bukkit.getPlayerExact(targetPlayerName);
 
@@ -61,7 +66,7 @@ public class PrivateMessageCommand implements CommandExecutor, TabCompleter {
 
             if(args.length==1) {
                 for (Player player : Bukkit.getOnlinePlayers()) {
-                    completions.add(player.getName());
+                    completions.add(player.getDisplayName());
                 }
             }
 

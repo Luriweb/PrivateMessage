@@ -19,17 +19,17 @@ public class PrivateMessageCommand implements CommandExecutor, TabCompleter {
         @Override
         public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-            if(!(sender instanceof Player senderPlayer)) {
+            if (!(sender instanceof Player senderPlayer)) {
                 sender.sendMessage("플레이어만 사용할 수 있는 명령어입니다.");
                 return true;
             }
 
-            if(args.length == 0){
+            if (args.length == 0){
                 sender.sendMessage("사용법: /귓속말 <플레이어> <메시지>");
                 return true;
             }
 
-            if(args.length == 1){
+            if (args.length == 1){
                 sender.sendMessage("메세지를 입력해주세요.");
                 return true;
             }
@@ -64,7 +64,7 @@ public class PrivateMessageCommand implements CommandExecutor, TabCompleter {
 
             List<String> completions = new ArrayList<>();
 
-            if(args.length==1) {
+            if (args.length==1) {
                 for (Player player : Bukkit.getOnlinePlayers()) {
                     completions.add(player.getDisplayName());
                 }
